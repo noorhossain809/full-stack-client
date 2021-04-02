@@ -6,9 +6,14 @@ import firebaseConfig from './firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons'
 import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router';
 
 const LogIn = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const history = useHistory();
+    const location = useLocation();
+    
+    const { from } = location.state || { from: { pathname: "/" } };
     if(firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
       }
@@ -22,16 +27,13 @@ const LogIn = () => {
     const {email} = result.user;
     const signedInUser = {email};
     setLoggedInUser(signedInUser);
-    // ...
+    history.replace(from);
+
   }).catch((error) => {
-    // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // The email of the user's account used.
     var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    // ...
   });
     }
     return (

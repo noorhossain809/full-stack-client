@@ -1,15 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+ 
 } from "react-router-dom";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import LogIn from './components/LogIn/LogIn';
 import { createContext, useState } from 'react';
+import Order from './components/Order/Order';
+import Admin from './components/Admin/Admin';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import OrdersCheckOut from './components/OrdersCheckOut/OrdersCheckOut';
+
 
 
 export const UserContext = createContext();
@@ -21,7 +25,6 @@ function App() {
     <div>
       
       <Router>
-      <p>Email: {loggedInUser.email}</p>
       <Header></Header>
         <Switch>
           <Route path="/home">
@@ -29,6 +32,18 @@ function App() {
           </Route>
           <Route path="/login">
             <LogIn></LogIn>
+          </Route>
+          <PrivateRoute path="/buy-product/:id">
+          <Order></Order>
+          </PrivateRoute>
+          <PrivateRoute path="/addEvent">
+            <Admin></Admin>
+          </PrivateRoute>
+          <PrivateRoute path="/checkout">
+            <OrdersCheckOut></OrdersCheckOut>
+          </PrivateRoute>
+          <Route exact path="/">
+            <Home></Home>
           </Route>
         </Switch>
       </Router>
