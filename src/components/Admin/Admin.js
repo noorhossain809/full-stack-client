@@ -16,7 +16,7 @@ const Admin = () => {
           imageURL: imageURL,
           price: data.price
       };
-      const url = `http://localhost:5001/addEvent`
+      const url = `https://aqueous-gorge-46152.herokuapp.com/addEvent`
     //   console.log(eventData)
       fetch(url, {
           method: 'POST',

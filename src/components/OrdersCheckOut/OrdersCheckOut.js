@@ -10,13 +10,13 @@ const OrdersCheckOut = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     useEffect(() => {
-        fetch('http://localhost:5001/bookings?email='+loggedInUser.email)
+        fetch('https://aqueous-gorge-46152.herokuapp.com/bookings?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setBookings(data))
     }, [])
 
     const deleteEvent = id => {
-         fetch(`http://localhost:5001/deleteEvent/${id}`,{
+         fetch(`https://aqueous-gorge-46152.herokuapp.com/deleteEvent/${id}`,{
              method: 'DELETE'
          })
          .then(res => res.json())

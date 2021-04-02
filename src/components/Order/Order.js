@@ -9,7 +9,7 @@ const Order = () => {
     const [selected, setSelected] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/item/${id}`)
+        fetch(`https://aqueous-gorge-46152.herokuapp.com/item/${id}`)
             .then(res => res.json())
             .then(data => setSelected(data))
     }, [id]);
@@ -18,7 +18,7 @@ const Order = () => {
     const handleCheckout = () => {
         const newAdd = { email: loggedInUser.email, ...selected, date: new Date() };
         console.log(newAdd)
-        fetch('http://localhost:5001/newChecking', {
+        fetch('https://aqueous-gorge-46152.herokuapp.com/newChecking', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newAdd)

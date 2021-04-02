@@ -8,7 +8,7 @@ const Home = () => {
      const [loading, setLoading] = useState(true)
 
      useEffect(() => {
-         fetch('http://localhost:5001/items')
+         fetch('https://aqueous-gorge-46152.herokuapp.com/items')
          .then(res => res.json())
          .then(data => {
              setItems(data)
