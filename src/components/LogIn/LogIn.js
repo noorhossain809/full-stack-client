@@ -27,6 +27,7 @@ const LogIn = () => {
     const {email} = result.user;
     const signedInUser = {email};
     setLoggedInUser(signedInUser);
+    
     history.replace(from);
 
   }).catch((error) => {
