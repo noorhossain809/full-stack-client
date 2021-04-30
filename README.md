@@ -4,6 +4,15 @@
 
 [https://gents-collection.web.app/]
 
+
+ ## Features 
+
+ => Login Authentication (Private Route) 
+
+ => Add Product, Delete Product 
+
+ => Place Order, Order History 
+
 <!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
